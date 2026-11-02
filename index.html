@@ -386,6 +386,22 @@
   @media (prefers-reduced-motion: reduce){
     .avatar-wrap, h1, .role, .tagline{ animation:none; opacity:1; transform:none; }
   }
+  .subtabs{ display:flex; gap:8px; margin: 0 0 14px; }
+  .subtab{
+    border:1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:0.76rem; font-weight:500;
+    padding: 6px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .subtab.active{ background: var(--text); color:#fff; border-color: var(--text); }
+  .card-list[hidden], .empty-note[hidden]{ display:none; }
+  .empty-note{ font-size:0.85rem; color:var(--muted); text-align:center; margin:18px 0; }
+  .past .acc-num{ opacity:.6; }
 </style>
 </head>
 <body>
@@ -425,11 +441,15 @@
   </div>
 
   <div class="panel events active">
-    <div class="card-list">
+    <div class="subtabs">
+      <button class="subtab active" data-list="upcoming">Nadcházející</button>
+      <button class="subtab" data-list="past">Proběhly</button>
+    </div>
+    <div class="card-list" id="list-upcoming">
 
-      <div class="acc-item">
+      <div class="acc-item" data-date="2026-09-15">
         <div class="acc-header">
-          <span class="acc-num">1</span>
+          <span class="acc-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
           <span class="acc-title-wrap">
             <span class="acc-title">Černá AI Festival</span>
             <span class="acc-meta-row">
@@ -445,9 +465,9 @@
         </div></div></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-date="2026-09-17">
         <div class="acc-header">
-          <span class="acc-num">2</span>
+          <span class="acc-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
           <span class="acc-title-wrap">
             <span class="acc-title">Data Mesh Brno</span>
             <span class="acc-meta-row">
@@ -463,9 +483,9 @@
         </div></div></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-date="2026-09-22">
         <div class="acc-header">
-          <span class="acc-num">3</span>
+          <span class="acc-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
           <span class="acc-title-wrap">
             <span class="acc-title">Scaleup Night</span>
             <span class="acc-meta-row">
@@ -481,9 +501,9 @@
         </div></div></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-date="2026-11-19">
         <div class="acc-header">
-          <span class="acc-num">4</span>
+          <span class="acc-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
           <span class="acc-title-wrap">
             <span class="acc-title">Showference</span>
             <span class="acc-meta-row">
@@ -499,7 +519,81 @@
         </div></div></div>
       </div>
 
+      <div class="acc-item" data-date="2026-10-21" data-end="2026-10-22">
+        <div class="acc-header">
+          <span class="acc-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
+          <span class="acc-title-wrap">
+            <span class="acc-title">Engaged Investments Conference</span>
+            <span class="acc-meta-row">
+              <span class="acc-date">21.–22. října 2026</span>
+              <span class="days-badge" data-date="2026-10-21" data-end="2026-10-22"></span>
+            </span>
+          </span>
+          <svg class="acc-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="acc-body-wrap"><div class="acc-body"><div class="acc-body-inner">
+          <p class="acc-desc">Konference pro investory a zakladatele startupů ze střední a východní Evropy. Národní dům, Praha.</p>
+          <a class="acc-link" href="https://engaged.investments" target="_blank" rel="noopener">Otevřít →</a>
+        </div></div></div>
+      </div>
+
+      <div class="acc-item" data-date="2026-11-04">
+        <div class="acc-header">
+          <span class="acc-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
+          <span class="acc-title-wrap">
+            <span class="acc-title">DATA mesh #40 by Livesport</span>
+            <span class="acc-meta-row">
+              <span class="acc-date">4. listopadu 2026</span>
+              <span class="days-badge" data-date="2026-11-04"></span>
+            </span>
+          </span>
+          <svg class="acc-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="acc-body-wrap"><div class="acc-body"><div class="acc-body-inner">
+          <p class="acc-desc">Neformální meetup datových profesionálů, pořádá Data Talk. Praha 5, od 18:00.</p>
+          <a class="acc-link" href="https://luma.com/iywbwu0o" target="_blank" rel="noopener">Otevřít →</a>
+        </div></div></div>
+      </div>
+
+      <div class="acc-item" data-date="2026-12-03">
+        <div class="acc-header">
+          <span class="acc-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
+          <span class="acc-title-wrap">
+            <span class="acc-title">DATA DAY 2026</span>
+            <span class="acc-meta-row">
+              <span class="acc-date">3. prosince 2026</span>
+              <span class="days-badge" data-date="2026-12-03"></span>
+            </span>
+          </span>
+          <svg class="acc-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="acc-body-wrap"><div class="acc-body"><div class="acc-body-inner">
+          <p class="acc-desc">Komunitní konference o datech a AI, pořádá Data Talk. Divadlo X10, Praha.</p>
+          <a class="acc-link" href="https://www.datatalk.cz/data-day/" target="_blank" rel="noopener">Otevřít →</a>
+        </div></div></div>
+      </div>
+
+      <div class="acc-item" data-date="2026-12-31">
+        <div class="acc-header">
+          <span class="acc-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
+          <span class="acc-title-wrap">
+            <span class="acc-title">AI Awards 2026</span>
+            <span class="acc-meta-row">
+              <span class="acc-date">prosinec 2026</span>
+            </span>
+          </span>
+          <svg class="acc-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="acc-body-wrap"><div class="acc-body"><div class="acc-body-inner">
+          <p class="acc-desc">Odborné ocenění za přínos k rozvoji AI v Česku. Jiří je členem poroty v kategorii Podnikání.</p>
+          <a class="acc-link" href="https://www.aiawards.cz" target="_blank" rel="noopener">Otevřít →</a>
+        </div></div></div>
+      </div>
+
     </div>
+    <div class="card-list" id="list-past" hidden></div>
+    <p class="empty-note" id="empty-past" hidden>Zatím žádné proběhlé akce.</p>
+    <p class="empty-note" id="empty-upcoming" hidden>Aktuálně nejsou naplánované žádné akce.</p>
   </div>
 
   <div class="panel media">
@@ -661,8 +755,10 @@
     const today = new Date();
     today.setHours(0,0,0,0);
     const diff = Math.round((target - today) / 86400000);
+    const endD = badge.dataset.end ? new Date(badge.dataset.end + 'T00:00:00') : null;
     let text;
-    if(diff < 0) text = 'proběhlo';
+    if(diff < 0 && endD && endD >= today) text = 'probíhá';
+    else if(diff < 0) text = 'proběhlo';
     else if(diff === 0) text = 'dnes';
     else if(diff === 1) text = 'zítra';
     else if(diff >= 2 && diff <= 4) text = 'za ' + diff + ' dny';
@@ -812,6 +908,30 @@
     size();
     window.addEventListener('resize', size);
     frame();
+  })();
+  // Events: auto-split into upcoming / past by date
+  (function(){
+    const up = document.getElementById('list-upcoming');
+    const past = document.getElementById('list-past');
+    const today = new Date(); today.setHours(0,0,0,0);
+    const items = [...up.querySelectorAll('.acc-item[data-date]')];
+    const byDate = (a,b)=> new Date(a.dataset.date) - new Date(b.dataset.date);
+    const endOf = i=> new Date((i.dataset.end || i.dataset.date)+'T00:00:00');
+    const upcoming = items.filter(i=> endOf(i) >= today).sort(byDate);
+    const gone = items.filter(i=> endOf(i) < today).sort((a,b)=>byDate(b,a));
+    upcoming.forEach(i=>up.appendChild(i));
+    gone.forEach(i=>{ i.classList.add('past'); i.querySelector('.days-badge')?.remove(); past.appendChild(i); });
+    document.getElementById('empty-upcoming').hidden = upcoming.length > 0;
+    document.getElementById('empty-past').hidden = gone.length > 0;
+    document.querySelectorAll('.subtab').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        document.querySelectorAll('.subtab').forEach(x=>x.classList.toggle('active', x===b));
+        const showPast = b.dataset.list === 'past';
+        up.hidden = showPast; past.hidden = !showPast;
+        document.getElementById('empty-upcoming').hidden = showPast || upcoming.length > 0;
+        document.getElementById('empty-past').hidden = !showPast || gone.length > 0;
+      });
+    });
   })();
 </script>
 </body>
