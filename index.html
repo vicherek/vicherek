@@ -402,6 +402,36 @@
   .card-list[hidden], .empty-note[hidden]{ display:none; }
   .empty-note{ font-size:0.85rem; color:var(--muted); text-align:center; margin:18px 0; }
   .past .acc-num{ opacity:.6; }
+
+  .greeting{
+    position:relative;
+    margin: 28px 0 0;
+    padding: 16px 18px 16px 20px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(44,76,199,.22);
+    border-left: 4px solid var(--accent);
+    border-radius: 14px;
+    opacity:0;
+    animation: reveal .6s cubic-bezier(.2,.7,.3,1) .26s forwards;
+  }
+  .greeting-kicker{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:0.68rem;
+    font-weight:600;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color: var(--accent);
+  }
+  .greeting-title{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:1.02rem;
+    margin: 4px 0 6px;
+  }
+  .greeting p{ font-size:0.88rem; line-height:1.5; margin:0; color: var(--text); }
+  .greeting a{ color: var(--accent); font-family:'Space Grotesk', sans-serif; font-weight:500; text-decoration:none; }
+  .greeting a:hover{ text-decoration:underline; }
+  @media (prefers-reduced-motion: reduce){ .greeting{ animation:none; opacity:1; } }
 </style>
 </head>
 <body>
@@ -432,6 +462,12 @@
       </a>
     </div>
   </header>
+
+  <section class="greeting" aria-label="Pozdrav účastníkům AI Mastermind">
+    <div class="greeting-kicker">AI Mastermind</div>
+    <div class="greeting-title">Ahoj, účastníci AI Mastermindu! 👋</div>
+    <p>Díky, že jste tu. Jsem rád, že se můžeme potkat a sdílet, co nám AI reálně přináší v práci i v byznysu. Pokud chcete pokračovat v debatě, ozvěte se mi na <a href="https://www.linkedin.com/in/vicherek/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  </section>
 
   <div class="tabs">
     <div class="tab-indicator"></div>
